@@ -1,0 +1,44 @@
+#include <stdio.h>
+#pragma warning(disable : 4996)
+int NSD(int a, int b) {// НСД
+	if (b == 0)
+		return a;
+	return NSD(b, a % b);
+}
+	int nsk(int a, int b) { //НСК для двох чисел
+		return (a * b) / NSD(a, b);
+	
+}
+	int f_nsk(int cn[], int b) {//НСК для масиву
+
+		int result = cn[0];
+		for (int i = 1; i < b; i++) {
+			result = nsk(result, cn[i]);
+
+		}
+		return result;
+	}
+int main() {
+
+	
+	int count;
+	int cn[19];
+	int i = 0;
+	
+	printf("Enter count of numbers ");
+	scanf("%d", &count);
+	if (count < 2 || count > 20) { // Перевірка правильності вводу 
+		printf("Enter correct number (between 2 and 20)\n");
+		return 1;
+	}
+	printf("Enter numbers\n");
+	while ( i != count) {//заповнення масиву
+		
+		scanf("%d ", &cn[i]);
+		i++;
+	}
+	int NSK = f_nsk(cn, count);//Виконання та вивід результату
+	printf("NSK: %d\n", NSK);
+
+	return 0;
+}
