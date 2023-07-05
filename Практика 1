@@ -1,0 +1,18 @@
+#include <stdio.h>
+#pragma warning(disable : 4996)
+int main() {
+	int t1, t2, t3;//ініаціація
+	double res;//ініаціація
+	printf("Print 3times for 3people\n");
+	scanf_s("%d %d %d", &t1,&t2,&t3);//Ввід чисел
+	printf("\nt1=%d,t2=%d,t3=%d", t1,t2,t3);
+	if (( t1 <= 10000 && t1 > 0) && (t2 <= 10000 && t1 > 0) && (t3 <= 10000 && t1 > 0) ) {//Перевірка
+		res = ((t1 + t2 + t3) / 3);//Підрахунок
+		printf("\nTime for 3 people= %0.2f\n", res);//Вивід результату
+
+	}
+	else {
+		printf("\nEnter correct time(0-10000)"); //Помилка
+		return 0;
+	}
+}
