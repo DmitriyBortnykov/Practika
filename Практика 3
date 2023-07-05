@@ -1,1 +1,15 @@
-
+#include <stdio.h>
+#include<math.h>
+#pragma warning(disable : 4996)
+int main() {
+	int count_numb;//Ініціалізація 
+	int count_ruzryad;//Ініціалізація 
+	printf("Enter digit of a number:");
+	scanf_s("%d", &count_ruzryad);//Введення кількості розрядів
+	if (count_ruzryad <= 30) {//Перевірка виконання умови
+		count_numb = pow(2, (count_ruzryad - 1));//Формула для підрахунку   Кількість чисел = 2^(р - 1),де р - кількість розрядів.
+		printf("Result,count digit:%d", count_numb);//Вивід результату
+	}
+	else { printf("Error,write correct digit(1-30)"); }
+	return 0;
+}
