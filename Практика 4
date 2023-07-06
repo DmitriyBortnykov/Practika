@@ -1,0 +1,26 @@
+#pragma warning(disable : 4996)
+#include <stdio.h>
+
+
+int main() {
+    int n;
+    printf("Enter a natural number n: "); // Введення числа
+    scanf_s("%d", &n);
+    int count=0;
+    if (n < 1 || n > 150) {
+        printf("Error: Invalid number\n"); // Перевірка умови
+        return 1;
+    }
+    for (int m = 1; m < n; m++) {//Цикл для підрахунку кількості дільників 
+
+        if (n % m == n / m) {
+            count++;
+        }
+        
+    }
+    printf("Number of equal divisors of %d: %d\n", n, count);//Виведення результату
+    
+    
+
+    return 0;
+}
