@@ -1,0 +1,52 @@
+
+#include <stdio.h>
+#include <string.h>
+#pragma warning(disable:4996)
+
+int factorial(int n) {
+    if (n <= 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+
+int Anagrams(char word[]) {
+    int wordLeg = strlen(word);
+
+ 
+    int count[26] = { 0 };
+
+  
+    for (int i = 0; i < wordLeg; i++) {
+        count[word[i] - 'a']++;
+    }
+
+    // Обчислення добутку 
+    int mult = 1;
+    for (int i = 0; i < 26; i++) {
+        if (count[i] > 1) {
+            mult *= factorial(count[i]);
+        }
+    }
+
+    // Формула для обчислення анаграм
+    int allanagrams = factorial(wordLeg) / mult;
+
+    return allanagrams;
+}
+
+int main() {
+    char word[14];
+    // Отримання даних
+    printf("Enter a word: ");
+    scanf("%s", word);
+
+    
+    int aCount = Anagrams(word);
+
+    // Виведення результату
+    printf("All anagrams for the entered word: %d\n", aCount);
+
+    return 0;
+}
