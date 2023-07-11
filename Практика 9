@@ -1,0 +1,44 @@
+include <stdio.h>
+#pragma warning(disable : 4996)
+
+int func(int x, int y) { // Функція для обчислення мінімальної кількості кроків
+  
+    int diss = y - x;
+
+    // Умова
+    if (diss <= 3) {
+        return diss;
+    }
+
+    // ініціалізація
+    int step = 0; int count = 1; int range = 2;
+
+    //Цикл
+    while (range <= diss) {
+        count++;
+        range *= 2;
+    }
+
+   
+    if (diss <= (range - range / 2)) {
+        step = count;
+    }
+    else {
+        step = count + 1;
+    }
+
+    return step;
+}
+
+int main() {
+    int x, y; 
+    printf("Input x= ");
+    scanf("%d", &x);
+    printf("Input y= ");
+    scanf("%d", &y);
+
+    int step = func(x, y); // Виклик функції
+    printf("Minimal steps: %d\n", step); // Виведення результату
+
+    return 0;
+}
